@@ -29,5 +29,10 @@ def parser_config():
                         help='how many batches to wait before logging training status')
     parser.add_argument('--backend', type=str, default=None,
                         help='backend for distributed training (tcp, gloo on cpu and gloo, nccl on gpu)')
+    parser.add_argument(
+        '--job-dir',
+        type=str,
+        help='GCS or local dir to write checkpoints and export model',
+        default='/tmp/census-keras')
     args = parser.parse_args()
     return args
